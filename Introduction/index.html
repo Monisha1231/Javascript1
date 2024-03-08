@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Javascript Introduction</title>
+</head>
+<body>
+    <h1 id="message"></h1>
+    <input type="text" id="userName">
+    <input type="button" value="Submit" onclick="myFunction('23')">
+    <script  src="script.js"> 
+    console.log(document.getElementById("message"));
+    let message = document.getElementById("message")
+    message.innerHTML = "Welcome to our website"
+    console.log("Hiiii");
+     // function defintion    
+    function myFunction(age){
+        // block of code to perform
+       console.log("My function");
+       let name = document.getElementById("userName").value
+       console.log("The name is ",name,age);
+    }
+     // function call
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    // 
+    //     // this is alert message
+    //     console.log('hello'); // its not come in console 
+    //     // alert('hi');
+
+    //     // Variables
+    //     let score = 0; // intialization
+    //     score = 10; // assignment
+    //     console.log("score is"+ 10 ); //o/p 10
+
+    //     let amount = 1000;
+    //     console.log("your bill amount Rs " + amount); // your bill amount Rs 1000
+
+    //     score = 'no score'; // dynamically typed language
+
+    //     const pi = 3.14; // cosnst is not change
+    //    // pi = 4.0;  it show in error
+
+    //     var a = 10; 
+    //     console.log("a is" + a); // 10
+    </script>
+</body>
+</html>
