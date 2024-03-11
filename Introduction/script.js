@@ -169,16 +169,395 @@ console.log(sum); // o/p 15
 
 // sum of positive numbers
 
-let sum1 = 0;
-let numberr = parseInt(prompt('enter a number'));
+// let sum1 = 0;
+// let numberr = parseInt(prompt('enter a number'));
 
-while(numberr>=0){
-sum = sum + number;
-number = parseInt(prompt('enter a number'));
+// while(numberr>=0){
+// sum = sum + number;
+// number = parseInt(prompt('enter a number'));
+// }
+// console.log(sum1);
+
+
+// braek statement using while loop
+
+// let summ = 0;
+// number;
+
+// while(true){
+//   number = parseInt(prompt('Enter a number'));
+//   if(number<0){
+//     break;
+//   }
+//   summ = summ + number;
+// }
+// console.log('the sum is' + summ); // give negative number loop is terminated
+
+// break with nested loop
+
+for(let i = 1; i<=5; i++){
+  for(let j =1; j<=5; j++){
+    if(i==3){
+      break;
+    }
+    console.log(`i = ${i}, j = ${j}`);
+  }
 }
-console.log(sum1);
+
+// continue with for loop
+
+for(let i = 1; i<=5; i++){
+  if(i==3){
+    continue;
+    
+  }
+  console.log(i); // o/p : 1 2 4 5
+}
+
+// continue with nested for loop
+
+for(let i = 1; i<=3; i++){
+  for(let j = 1; j<=3; j++){
+    if(i==2){
+      continue;
+    }
+    console.log(`i = ${i} , j = ${j}`)
+  }
+}
+
+// switch statement
+
+let l = 3;
+switch(l){
+  case 1:
+    l = 'one';
+    break;
+  case 2:
+    l = 'two';
+    break;
+  case 3:
+    l = 'three';
+    break;
+  case 4:
+    l = 'four';
+    break;
+  case 5:
+    l = 'five';
+    break;
+  default:
+    l = 'not found';
+    break;
+    
+}
+console.log(`the value is ${l}`); // the value of l is three
+
+// type checking switch statement
+
+let s = 2;
+switch(s){
+  case 1:
+    s = 'one';
+    break;
+  case "2":
+    s = 2;
+    break;
+  case 2:
+    s = 'two';
+    break;
+  default:
+    s = 'not found';
+    break;
+}
+console.log(`the value of s is ${s}`); // the value of s is two
+
+// function and function expressions
+
+function greet(){
+  console.log('hello');
+}
+greet(); // function call  // hello
+
+// function with parameters
+
+// function greet(name){
+//   console.log("hi");
+// }
+// let d = prompt("enter a name");
+// greet(name);  // hi
+
+// function with different arguments
+
+function add(a,b){
+  console.log(a + b);
+}
+add(3,3);  // 6
+add(5,5);  // 10
+
+// function return
+
+// function add(a,b){
+//   return (a + b);
+// }
+// // take input from user using prompt
+//  let number1 = parseFloat(prompt('Enter a first number')); // 2.2
+//  let number2 = parseFloat(prompt('Enter a second number')); // 2.2
+
+//  let result1 = add(number1,number2);
+//  console.log('the sum is' + result1); // the sum is 4.4
+ 
+// default parameters
+
+function sum2(x=3, y=5){
+  return x+y;
+}
+console.log(sum2(x=5, y=15)); // 20
+console.log(sum2(7)); // 12
+console.log(sum2);  // 8
+
+// variables and functions
+
+let m = "hello";  // introduce global scope
+function greet(){
+  console.log(a);
+}
+greet(); // function call
+
+// local scope
+
+var f = "hi";
+function greet(){
+  let g = "hello";
+  console.log(f + g);  // hihello
+}
+greet();
+//console.log(f + g);  // g is not defined
+
+// let block scoped variable
+
+// let x = 'hi';
+// function myFunction(){
+//   let y = 'hello';
+//   console.log(x + ' ' + y);
+
+//   if(y=='hello'){
+//    let z = 'monisha';
+//    console.log(x + ' ' + y + ' ' + ' '+ z);
+
+//   }
+//   console.log(x + ' ' + y + ' ' + ' ' + z); // uncught reference error  // o/p is not come
+  
+// }
+// myFunction();
+
+//  Recursive function
+
+function count(number){
+    console.log(number);
+    const con = number -1;
+    if(con > 0){
+      count(con);
+    }
+}
+count(4);
+
+// javascript objects
+ 
+// object creation
+
+const person = {
+  name : 'john',
+  age : 20
+};
+console.log(typeof person);  // object
+
+// object properties
+
+// 1dot(.) notation
+
+const student = {
+  name : 'john',
+  age : 20
+};
+console.log(student.name) // john
+
+// 2.using bracket[] notation
+
+const member = {
+  name : 'peter',
+  age : 20
+};
+console.log(member['name']); // peter using single or double quotes
+
+// nested objects
+
+const student1 = {
+  name : 'john',
+  age : 20,
+
+  marks: {
+    tamil : 80,
+    english : 80
+  }
+}
+console.log(student1.marks); // {tamil : 80, english : 80}
+console.log(student1.marks.english); // get particuler property 80
+
+// javascript methods
+
+const person1 = {
+  name : 'peter',
+  greet : function(){
+    console.log('hello');
+  }
+}
+person1.greet(); // hello
+person1.name;
+
+// accessing property and method
+
+const members = {
+  name : 'peterson',
+  greet : function(){
+    console.log('hello javascript');
+  }
+};
+const memname=members.name;
+console.log(memname);
+members.greet();  // hello javacsript
+
+// using this keyword
+
+const person2 = {
+  name : 'john',
+  age : 20,
+  greet : function(){
+    console.log('the name is'+ ' ' + this.name);
+  }
+};
+person2.greet(); // the name is john
 
 
+const person3 = {
+  name : 'john',
+  age : 20,
+  greet(){
+    let lastName = 'doe';
+    console.log('the person name is'+ ' '+ this.name + ' ' + lastName);
+  } 
+};
+person3.greet(); // the person name is john doe
 
+// javascript constructor function
 
+function Person(){
+  this.name = 'john',
+  this.age = 20
+}
+const p = new Person();
 
+//
+ 
+function Student(){
+  this.name = 'Monica',
+  this.age = 20,
+  this.greet = function(){
+    console.log('hello Monica');  
+  }
+}
+
+const stu = new Student();
+console.log(stu.name); // Monica
+console.log(stu.age); // 20
+console.log(stu.greet); // hello Monica
+
+// constructor with function parameters
+
+function Member(name,age,gender){  // 
+  this.name = name,
+  this.age = age,
+  this.gender = gender,
+
+  this.greet = function(){
+    return ('hi' + ' ' + this.name);  
+  }
+}
+
+const mem = new Member('John',20,'male');
+console.log(mem.name);
+console.log(mem.age);
+console.log(mem.greet);
+
+// object prototype
+
+function Student1(){
+  this.name = 'john',
+  this.age = 20
+}
+
+let st = new Student1();
+
+Student1.prototype.gender = 'Male'; // you can add properties in constructor function using prototype
+
+console.log(st.name);
+console.log(st.age);
+console.log(st.gender);
+
+// javascript array and array methods
+
+let marks = [86,98,85,90,95];
+console.log(marks.length); // 5
+console.log(marks[marks.length-1]); // 95
+
+let cities = ["chennai", "salem","madurai","trichy","kanchipuram"];
+console.log(cities[0]); // chennai
+console.log(cities[5]); // undefined
+
+// mix of int and string
+
+let arr = [1,2,3,'a','b',"abc"];
+console.log(arr); //   [1,2,3,'a','b',"abc"]
+
+let arr1 = [1,2,3,'a','b',"abc",[5,6]];
+console.log(arr1);
+
+console.log(arr1[6]); // [5,6]
+console.log(arr1[6][0]); // 5 
+console.log(arr1[6][1]); // 6
+
+// 2 dimensional array
+
+let array = [[3,4,5],[1,2,3],[6,7,8]];
+console.log(array[0]); // 3,4,5
+console.log(array[0][1]); // 4
+console.log(array[2][1]); // 7
+
+// array methods
+
+let ar = ['a','b','c','d','e'];
+console.log(ar);
+console.log(ar.length); // 5
+
+// push - add element to the end  and retruns new length
+ar.push('f');
+console.log(ar); // a,b,c,d,e,f - length 6
+
+// pop - remove element from the end and return removed value
+
+console.log(ar.pop()); 
+console.log(ar); // a,b,c,d,e
+
+// shift - remove first element from the array
+// returns removed value
+
+console.log(ar.shift()); 
+console.log(ar); // b,c,d,e
+
+// unshift - add element from the first in array
+
+console.log(ar.unshift('a'));
+console.log(ar.unshift('f'));
+console.log(ar);
+
+// splice - to delete particular element from the array
+console.log(ar.splice(2,1)); 
+console.log(ar);
