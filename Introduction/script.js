@@ -556,8 +556,208 @@ console.log(ar); // b,c,d,e
 
 console.log(ar.unshift('a'));
 console.log(ar.unshift('f'));
-console.log(ar);
+console.log(ar); // ['f', 'a', 'b', 'c', 'd', 'e']
 
 // splice - to delete particular element from the array
+
+// splice
+//1 st parameter - starting index
+//2 nd parameter -no of elements to be deleted from starting index
+//3rd(or more) parameter 
+
 console.log(ar.splice(2,1)); 
-console.log(ar);
+console.log(ar); // ) ['f', 'a', 'c', 'd', 'e']
+
+console.log(ar.splice(1,2,'m','n'));
+console.log(ar); //  ['f', 'm', 'n', 'd', 'e']
+
+ar.splice(1,0,'h');  // to replcae the value 
+console.log(ar); //  ['f', 'h', 'm', 'n', 'd', 'e']
+
+// slice(starting index, ending index)  // to get particular value
+
+console.log(ar.slice(1,4)); //  ['h', 'm', 'n']
+console.log(ar.slice(0,4)); //  ['f', 'h', 'm', 'n']
+
+//reverse
+
+ar.reverse()
+console.log(ar); //  ['e', 'd', 'n', 'm', 'h', 'f']
+
+// join - converts array to string 
+
+let str = ar.join()
+console.log(str); // e,d,n,m,h,f
+
+// split - converts string to array
+
+let str1 = "a,b,c,d,e";
+let arr2 = str1.split(',');
+console.log(arr2); // (5) ['a', 'b', 'c', 'd', 'e']
+
+// concat and spread operator(...)
+
+let firstArr = [1,2,3];
+let secArr = [4,5,6];
+
+let joinedArr = [firstArr,secArr]
+console.log(joinedArr);  // (2) [Array(3), Array(3)]
+
+joinedArr = firstArr.concat(secArr);
+console.log(joinedArr);  // (6) [1, 2, 3, 4, 5, 6]
+
+let joined = [...firstArr,...secArr]
+console.log(joined); //(6) [1, 2, 3, 4, 5, 6]
+
+// indexOf - it return a index position 
+let arr3 = ["html","css","java","javascript","mysql"];
+let index = arr3.indexOf("javascript");
+console.log(index); // 3
+  
+
+// springboot is not place in the array so it will return -1
+let index1 = arr3.indexOf("springboot");
+console.log(index1);  // -1
+
+// sort - sort the array element
+
+let city = ["madurai", "chennai", "salem", "trichy", "tanjavur"];
+let sortedArray = city.sort();
+console.log(sortedArray);    
+
+//includes() - if it is check the array contains or not
+
+let check = sortedArray.includes("salem");
+console.log(sortedArray); 
+
+// Exception handling
+
+// num = prompt("enter a number");
+// console.log(num**2);
+
+// try{
+//   num = prompt("enter a number");
+//   // if(num===''){
+//   //   throw "cannot be empty";
+//   // }
+//   if(isNaN(num)){
+//     throw "enter a valid number";
+//     console.log(num**2);
+//   }
+// }
+// catch(error){
+//   console.log(error);
+// }
+// finally{
+//   console.log('bye');
+// }
+
+
+// oops - object oriented programming 
+// object 
+
+let user = {
+  name : 'john',
+  age : 22,
+  login(){
+    console.log("you are logged in");
+  },
+  logout(){
+    console.log("you are logged out");
+  }
+}
+
+let user1 = {
+  name : 'Doe',
+  age : 23,
+  login(){
+    console.log("hi", this.name);
+    console.log("you are logged in");
+  },
+  logout(){
+    console.log("you are logged out");
+  }
+}
+
+let user2 = {
+  name : 'peter',
+  age : 21,
+  login(){
+    console.log("hi", this.name);
+    console.log("you are logged in");
+  },
+  logout(){
+    console.log("you are logged out");
+  }
+}
+user1.login(); // hi doe you are logged in 
+user2.login(); // hi peter you are logged in
+
+// class - is a template of a properties and methods
+// static - common variables / methods for class 
+//         - accessed with className
+// ES6
+
+class User{  // base class , parent class , super class
+   static numberOfUsers = 0;  // static variable
+  constructor(name,age){
+    // instance variable
+          this.name = name;
+          this.age = age;
+          User.numberOfUsers++;
+  }
+  login(){
+    console.log("hi", this.name);
+    console.log("you are logged in");
+  }
+  logout(){
+    console.log("you are logged out");
+  }
+  // static method
+ static displayTotalUsers(){
+  console.log("total number of users" + User.numberOfUsers++);
+ }
+}
+let userOne = new User("vithya",21);
+let userTwo = new User("Raj",22);
+let userThree = new User("john",23);
+// console.log('number of users', User.numberOfUsers); // number of users 2 // 3
+User.displayTotalUsers(); // className.methodName // number of users 3
+
+// inheritance
+// derived class, child class , sub class
+class PaidUser extends User{
+      constructor(name,age){
+      super(name,age);
+      this.storage = 100;
+      }
+      message(){
+        console.log("you have 100 gb free storage"); // you have 100 gb free storage
+      }
+      // overriding
+      login(){
+        console.log("thank you for your support");
+        return this; // current object
+      }
+}
+
+let paidUser1 = new PaidUser("Dhana",23);
+paidUser1.login();  // you have 100 gb free storage
+paidUser1.message(); //thank you for your support
+
+// method chaining
+paidUser1.login().message(); // thank you for your support you have 100 gb free storage
+
+
+// function
+function User1(name,age){
+       this.name = name;
+       this.age = age;
+}
+User.prototype.login = function(){
+  console.log("hi",this.name) // hi Maha
+  console.log("you are logged in"); // you are logged in
+}
+
+let user3 = new User("Maha",23);
+user3.login();
