@@ -487,6 +487,15 @@ console.log(mem.name);
 console.log(mem.age);
 console.log(mem.greet);
 
+
+//
+function findProduct(a,b){
+  return a*b;
+}
+console.log(findProduct(4,5)); // 20 its a normal function
+
+
+
 // object prototype
 
 function Student1(){
@@ -653,111 +662,71 @@ console.log(sortedArray);
 // }
 
 
-// oops - object oriented programming 
-// object 
 
-let user = {
-  name : 'john',
-  age : 22,
-  login(){
-    console.log("you are logged in");
-  },
-  logout(){
-    console.log("you are logged out");
-  }
+// Hoisting function
+
+console.log(findProductt(5*10)); // hoisting function
+
+function findProductt(a,b){
+  return a*b;
 }
 
-let user1 = {
-  name : 'Doe',
-  age : 23,
-  login(){
-    console.log("hi", this.name);
-    console.log("you are logged in");
-  },
-  logout(){
-    console.log("you are logged out");
+console.log(typeof findProductt); // 
+
+// recursion - function call itself
+
+function factorial(n){
+  if(n==1){
+    return 1;
+    return n*factorial(n-1);
   }
 }
+console.log(factorial(5));
 
-let user2 = {
-  name : 'peter',
-  age : 21,
-  login(){
-    console.log("hi", this.name);
-    console.log("you are logged in");
-  },
-  logout(){
-    console.log("you are logged out");
-  }
+// function expression
+// assihned to a variable as object
+
+let num = 100;
+let isEven = function(num){
+  return num%2==0;
 }
-user1.login(); // hi doe you are logged in 
-user2.login(); // hi peter you are logged in
+console.log(isEven(5)); // false
+console.log(isEven(2)); // true
 
-// class - is a template of a properties and methods
-// static - common variables / methods for class 
-//         - accessed with className
-// ES6
-
-class User{  // base class , parent class , super class
-   static numberOfUsers = 0;  // static variable
-  constructor(name,age){
-    // instance variable
-          this.name = name;
-          this.age = age;
-          User.numberOfUsers++;
-  }
-  login(){
-    console.log("hi", this.name);
-    console.log("you are logged in");
-  }
-  logout(){
-    console.log("you are logged out");
-  }
-  // static method
- static displayTotalUsers(){
-  console.log("total number of users" + User.numberOfUsers++);
- }
+// arrow function
+let volume = (l,b,h) => {
+  return l*b*h
 }
-let userOne = new User("vithya",21);
-let userTwo = new User("Raj",22);
-let userThree = new User("john",23);
-// console.log('number of users', User.numberOfUsers); // number of users 2 // 3
-User.displayTotalUsers(); // className.methodName // number of users 3
+console.log(volume(7,8,9)); // 504
 
-// inheritance
-// derived class, child class , sub class
-class PaidUser extends User{
-      constructor(name,age){
-      super(name,age);
-      this.storage = 100;
-      }
-      message(){
-        console.log("you have 100 gb free storage"); // you have 100 gb free storage
-      }
-      // overriding
-      login(){
-        console.log("thank you for your support");
-        return this; // current object
-      }
-}
+// callback function - function passed an argument
 
-let paidUser1 = new PaidUser("Dhana",23);
-paidUser1.login();  // you have 100 gb free storage
-paidUser1.message(); //thank you for your support
+// function greetConsole(name){
+//   console.log('hello',name);
+// }
+// function greetHeading(name){
+//   const heading = document.querySelector('h1');
+//   heading.innerHTML= 'hello' + name
 
-// method chaining
-paidUser1.login().message(); // thank you for your support you have 100 gb free storage
-
-
+// }
+// function greet(callback){
+//   callback();
+// }
+// function callMe(){
+//   console.log("call me");
+// }
+// greet(callMe);
+// greet(greetHeading);
 // function
-function User1(name,age){
-       this.name = name;
-       this.age = age;
-}
-User.prototype.login = function(){
-  console.log("hi",this.name) // hi Maha
-  console.log("you are logged in"); // you are logged in
-}
+// function greet(name, callback) {
+//   console.log('Hi' + ' ' + name);
+//   callback();
+// }
 
-let user3 = new User("Maha",23);
-user3.login();
+// // callback function
+// function callMe() {
+//   console.log('I am callback function');
+// }
+
+// // passing function as an argument
+// greet('Peter', callMe);
